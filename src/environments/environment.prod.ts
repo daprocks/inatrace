@@ -16,7 +16,7 @@ export const environment = {
     relativeImageUploadUrlAllSizes: window['env']['relativeImageUploadUrlAllSizes'] || '/api/common/image',
     version: 'INATRACE-FRUTA.1',
 
-    googleMapsApiKey: window['env']['googleMapsApiKey'] || 'AIzaSyC1XsNflJJtnCjhvOvK96ltTNe8q4M5d8g',
+    googleMapsApiKey: window['env']['googleMapsApiKey'] || '',
     googleAnalyticsId: '',
     facebookPixelId: null,
     intercomAppId: null,
