@@ -281,7 +281,22 @@
           [isInvalid]="submitted && form.get('weight').invalid"
           type="number">
         </textinput>
-
+        <textinput
+          hideAsterisk="true"
+          [form]="$any(form.get('quantity'))"
+          label="Quantity"
+          style="width: 100%"
+          placeholder="Enter quantiy"
+          i18n-label="@@facilityTypeDetail.textinput.quantity.label"
+          i18n-placeholder="@@facilityTypeDetail.textinput.quantity.placeholder"
+          [isInvalid]="submitted && form.get('quantity').invalid"
+          type="number">
+        </textinput>
+        <checkbox-input [form]="$any(form.get('aggregateByWeight'))">
+          <checkbox-input-rich-label i18n="@@facilityTypeDetail.textinput.aggregateby.label">
+            Aggregation by Weight
+          </checkbox-input-rich-label>
+        </checkbox-input>
         <single-choice
           label="Underlying measure unit"
           i18n-label="@@facilityTypeDetail.single-choice.underlyingMeasurementUnit.label"

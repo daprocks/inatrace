@@ -37,6 +37,12 @@
                     (click)="goTo(tabEnum.FEEDBACK)">
                     FEEDBACK
                 </li>
+                <li *ngSwitchCase="tabEnum.BPAPP" i18n="@@frontPage.header.tab.bpapp"
+                    [class.af-b2c-nav--selected]="tab === tabEnum.BPAPP"
+                    [style.font-family]="b2cSettings.textFont ? 'custom-text' : ''"
+                    (click)="goTo(tabEnum.BPAPP)">
+                    BCA
+                </li>
             </ng-container>
         </ng-container>
     </ul>

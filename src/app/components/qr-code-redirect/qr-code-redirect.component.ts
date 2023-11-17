@@ -19,9 +19,9 @@ export class QrCodeRedirectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     const labelId = this.route.snapshot.paramMap.get('uuid');
     const urlA = this.router.url.split('/');
+    console.log(urlA.length)
     if (urlA.length >= 2) {
       if (urlA[1] === 'q-cd') {
         const qrTag = this.route.snapshot.paramMap.get('qrTag');

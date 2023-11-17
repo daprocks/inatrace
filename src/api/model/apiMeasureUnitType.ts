@@ -23,6 +23,10 @@
 
 export interface ApiMeasureUnitType { 
     /**
+     * aggregate by weight 1 or quantity 0
+     */
+    aggregateByWeight?: boolean;
+    /**
      * code
      */
     code?: string;
@@ -34,6 +38,10 @@ export interface ApiMeasureUnitType {
      * label
      */
     label?: string;
+    /**
+     * units quantity
+     */
+    quantity?: number;
     underlyingMeasurementUnitType?: ApiMeasureUnitType;
     /**
      * the weight of the measurement unit type
@@ -50,6 +58,10 @@ export namespace ApiMeasureUnitType {
      */
     export enum Properties {
         /**
+         * aggregate by weight 1 or quantity 0
+         */
+        aggregateByWeight = 'aggregateByWeight',
+        /**
          * code
          */
         code = 'code',
@@ -61,6 +73,10 @@ export namespace ApiMeasureUnitType {
          * label
          */
         label = 'label',
+        /**
+         * units quantity
+         */
+        quantity = 'quantity',
         underlyingMeasurementUnitType = 'underlyingMeasurementUnitType',
         /**
          * the weight of the measurement unit type
@@ -74,6 +90,17 @@ export namespace ApiMeasureUnitType {
             metadata: formMetadata,
             classname: 'ApiMeasureUnitType',
             vars: [
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
+                    name: 'aggregateByWeight',
+                    classname: 'ApiMeasureUnitType',
+                    dataType: 'boolean',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
                 {
                     isReadOnly: false,
                     isEnum: false,
@@ -108,6 +135,17 @@ export namespace ApiMeasureUnitType {
                     complexType: ''
                 },
                 {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
+                    name: 'quantity',
+                    classname: 'ApiMeasureUnitType',
+                    dataType: 'number',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
                     metadata: ApiMeasureUnitType.formMetadata,
                     isReadOnly: false,
                     isEnum: false,
@@ -132,11 +170,15 @@ export namespace ApiMeasureUnitType {
                 },
             ],
             validators: {
+                aggregateByWeight: [
+                ],
                 code: [
                 ],
                 id: [
                 ],
                 label: [
+                ],
+                quantity: [
                 ],
                 underlyingMeasurementUnitType: [
                 ],
@@ -149,6 +191,9 @@ export namespace ApiMeasureUnitType {
   // export const ApiMeasureUnitTypeValidationScheme = {
   //     validators: [],
   //     fields: {
+  //               aggregateByWeight: {
+  //                   validators: []
+  //               },
   //               code: {
   //                   validators: []
   //               },
@@ -156,6 +201,9 @@ export namespace ApiMeasureUnitType {
   //                   validators: []
   //               },
   //               label: {
+  //                   validators: []
+  //               },
+  //               quantity: {
   //                   validators: []
   //               },
   //               underlyingMeasurementUnitType: {

@@ -675,6 +675,7 @@ export class StockProcessingOrderDetailsComponent implements OnInit, AfterViewIn
 
     switch (procAction.type) {
       case ApiProcessingAction.TypeEnum.PROCESSING:
+      case ApiProcessingAction.TypeEnum.PACKAGING:
       case ApiProcessingAction.TypeEnum.GENERATEQRCODE:
 
         this.currentInputStockUnit = procAction.inputSemiProduct;
@@ -824,7 +825,7 @@ export class StockProcessingOrderDetailsComponent implements OnInit, AfterViewIn
 
     const inputQuantity = this.totalInputQuantityControl.value ? parseFloat(this.totalInputQuantityControl.value) : null;
     const outputQuantity = this.totalOutputQuantity;
-
+    console.log(inputQuantity, outputQuantity);
     if (this.actionType === 'SHIPMENT') {
 
       this.remainingQuantityControl.setValue(Number(this.totalOutputQuantity - inputQuantity ?? 0).toFixed(2));
@@ -844,25 +845,23 @@ export class StockProcessingOrderDetailsComponent implements OnInit, AfterViewIn
    * Calculates the total output quantity normalized in the input measuring unit (from current input stock unit).
    */
   calcTotalOutputQuantity() {
-
+    console.log("calc");
     let sumInKGs = 0;
     (this.targetStockOrdersArray.getRawValue() as ApiStockOrder[]).forEach(tso => {
-
       const measuringUnit = tso.measureUnitType;
       const quantityInMeasureUnit = tso.totalQuantity != null ? tso.totalQuantity : null;
-
+      console.log(this.currentInputStockUnit.measurementUnitType,measuringUnit.code);
       if (measuringUnit != null && quantityInMeasureUnit != null) {
 
         // Calculate the quantity in KGs
-        const quantityInKGs = quantityInMeasureUnit * measuringUnit.weight;
+        const quantityInKGs = quantityInMeasureUnit * (this.currentInputStockUnit.measurementUnitType.code != measuringUnit.code ? measuringUnit.aggregateByWeight? measuringUnit.weight : measuringUnit.quantity : 1);
         sumInKGs += quantityInKGs;
       }
     });
 
     // Convert the sum in the input stock unit measure unit
     if (sumInKGs) {
-
-      const sumInInputMeasureUnit = sumInKGs / this.currentInputStockUnit.measurementUnitType.weight;
+      const sumInInputMeasureUnit = sumInKGs / (this.currentInputStockUnit.measurementUnitType.aggregateByWeight? this.currentInputStockUnit.measurementUnitType.weight: 1);
       this.totalOutputQuantityControl.setValue(Number(sumInInputMeasureUnit).toFixed(2));
       return;
     }
@@ -885,6 +884,7 @@ export class StockProcessingOrderDetailsComponent implements OnInit, AfterViewIn
           this.title = $localize`:@@productLabelStockProcessingOrderDetail.newFinalProcessingTitle:Add final processing action`;
           break;
         case TypeEnum.PROCESSING:
+        case TypeEnum.PACKAGING:
         case TypeEnum.GENERATEQRCODE:
           this.title = $localize`:@@productLabelStockProcessingOrderDetail.newProcessingTitle:Add new processing action`;
           break;
@@ -906,6 +906,7 @@ export class StockProcessingOrderDetailsComponent implements OnInit, AfterViewIn
           this.title = $localize`:@@productLabelStockProcessingOrderDetail.updateTransferTitle:Update transfer action`;
           break;
         case TypeEnum.PROCESSING:
+        case TypeEnum.PACKAGING:
         case TypeEnum.GENERATEQRCODE:
           this.title = $localize`:@@productLabelStockProcessingOrderDetail.updateProcessingTitle:Update processing action`;
           break;

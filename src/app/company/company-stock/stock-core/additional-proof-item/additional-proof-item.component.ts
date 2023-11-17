@@ -43,6 +43,7 @@ export class AdditionalProofItemComponent extends GenericEditableItemComponent<A
 
   get addProofs() {
     const obj = {};
+    obj['HARVEST_RECORD'] = $localize`:@@productLabelStockPurchaseOrdersModal.addProofs.harvestRecord:Harvest Record`;
     obj['PAYMENT_LIST'] = $localize`:@@productLabelStockPurchaseOrdersModal.addProofs.paymentList:Payment list`;
     obj['PAYMENT_ORDER_APPROVED'] = $localize`:@@productLabelStockPurchaseOrdersModal.addProofs.paymentOrderApproved:Payment order approved`;
     obj['PAYMENT_PROOF'] = $localize`:@@productLabelStockPurchaseOrdersModal.addProofs.paymentProof:Payment proof`;

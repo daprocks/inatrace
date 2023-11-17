@@ -24,6 +24,7 @@ import { ApiDocument } from './apiDocument';
 
 export interface ApiBusinessToCustomerSettings { 
     averageRegionFarmGatePrice?: number;
+    bpappId?: number;
     containerSize?: number;
     creationTimestamp?: Date;
     fairTrade?: number;
@@ -42,6 +43,7 @@ export interface ApiBusinessToCustomerSettings {
     landingPageImage?: ApiDocument;
     manualFarmGatePrice?: number;
     manualProducerPrice?: number;
+    orderBpapp?: number;
     orderFairPrices?: number;
     orderFeedback?: number;
     orderProducers?: number;
@@ -51,6 +53,7 @@ export interface ApiBusinessToCustomerSettings {
     productTitleColor?: string;
     quaternaryColor?: string;
     secondaryColor?: string;
+    tabBpapp?: boolean;
     tabFairPrices?: boolean;
     tabFeedback?: boolean;
     tabProducers?: boolean;
@@ -71,6 +74,7 @@ export namespace ApiBusinessToCustomerSettings {
      */
     export enum Properties {
         averageRegionFarmGatePrice = 'averageRegionFarmGatePrice',
+        bpappId = 'bpappId',
         containerSize = 'containerSize',
         creationTimestamp = 'creationTimestamp',
         fairTrade = 'fairTrade',
@@ -89,6 +93,7 @@ export namespace ApiBusinessToCustomerSettings {
         landingPageImage = 'landingPageImage',
         manualFarmGatePrice = 'manualFarmGatePrice',
         manualProducerPrice = 'manualProducerPrice',
+        orderBpapp = 'orderBpapp',
         orderFairPrices = 'orderFairPrices',
         orderFeedback = 'orderFeedback',
         orderProducers = 'orderProducers',
@@ -98,6 +103,7 @@ export namespace ApiBusinessToCustomerSettings {
         productTitleColor = 'productTitleColor',
         quaternaryColor = 'quaternaryColor',
         secondaryColor = 'secondaryColor',
+        tabBpapp = 'tabBpapp',
         tabFairPrices = 'tabFairPrices',
         tabFeedback = 'tabFeedback',
         tabProducers = 'tabProducers',
@@ -140,6 +146,17 @@ export namespace ApiBusinessToCustomerSettings {
                     isEnum: false,
                     required: false,
                     name: 'averageRegionFarmGatePrice',
+                    classname: 'ApiBusinessToCustomerSettings',
+                    dataType: 'number',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
+                    name: 'bpappId',
                     classname: 'ApiBusinessToCustomerSettings',
                     dataType: 'number',
                     isPrimitiveType: true,
@@ -320,6 +337,17 @@ export namespace ApiBusinessToCustomerSettings {
                     isReadOnly: false,
                     isEnum: false,
                     required: false,
+                    name: 'orderBpapp',
+                    classname: 'ApiBusinessToCustomerSettings',
+                    dataType: 'number',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
                     name: 'orderFairPrices',
                     classname: 'ApiBusinessToCustomerSettings',
                     dataType: 'number',
@@ -412,6 +440,17 @@ export namespace ApiBusinessToCustomerSettings {
                     name: 'secondaryColor',
                     classname: 'ApiBusinessToCustomerSettings',
                     dataType: 'string',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
+                    name: 'tabBpapp',
+                    classname: 'ApiBusinessToCustomerSettings',
+                    dataType: 'boolean',
                     isPrimitiveType: true,
                     isListContainer: false,
                     complexType: ''
@@ -520,6 +559,8 @@ export namespace ApiBusinessToCustomerSettings {
             validators: {
                 averageRegionFarmGatePrice: [
                 ],
+                bpappId: [
+                ],
                 containerSize: [
                 ],
                 creationTimestamp: [
@@ -550,6 +591,8 @@ export namespace ApiBusinessToCustomerSettings {
                 ],
                 manualProducerPrice: [
                 ],
+                orderBpapp: [
+                ],
                 orderFairPrices: [
                 ],
                 orderFeedback: [
@@ -567,6 +610,8 @@ export namespace ApiBusinessToCustomerSettings {
                 quaternaryColor: [
                 ],
                 secondaryColor: [
+                ],
+                tabBpapp: [
                 ],
                 tabFairPrices: [
                 ],
@@ -594,6 +639,9 @@ export namespace ApiBusinessToCustomerSettings {
   //     validators: [],
   //     fields: {
   //               averageRegionFarmGatePrice: {
+  //                   validators: []
+  //               },
+  //               bpappId: {
   //                   validators: []
   //               },
   //               containerSize: {
@@ -641,6 +689,9 @@ export namespace ApiBusinessToCustomerSettings {
   //               manualProducerPrice: {
   //                   validators: []
   //               },
+  //               orderBpapp: {
+  //                   validators: []
+  //               },
   //               orderFairPrices: {
   //                   validators: []
   //               },
@@ -666,6 +717,9 @@ export namespace ApiBusinessToCustomerSettings {
   //                   validators: []
   //               },
   //               secondaryColor: {
+  //                   validators: []
+  //               },
+  //               tabBpapp: {
   //                   validators: []
   //               },
   //               tabFairPrices: {

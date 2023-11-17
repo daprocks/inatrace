@@ -26,6 +26,7 @@ export class SelectedUserCompanyModalComponent implements OnInit {
 
   companyForm = new FormControl(null);
   userHasCompanies = false;
+  userIsAdmin = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -34,6 +35,7 @@ export class SelectedUserCompanyModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.userHasCompanies = this.userProfile?.companyIds?.length > 0;
+    this.userIsAdmin = this.userProfile.role === 'SYSTEM_ADMIN';
   }
 
   cancel() {

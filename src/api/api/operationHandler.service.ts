@@ -34,40 +34,6 @@ import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables'
 import { Configuration }                                     from '../configuration';
 
 /**
- * Namespace for handle.
- */
-export namespace Handle {
-    /**
-     * Parameter map for handle.
-     */
-    export interface PartialParamMap {
-      /**
-       * body
-       */
-      request_body?: { [key: string]: string; };
-    }
-
-    /**
-     * Enumeration of all parameters for handle.
-     */
-    export enum Parameters {
-      /**
-       * body
-       */
-      request_body = 'request_body'
-    }
-
-    /**
-     * A map of tuples with error name and `ValidatorFn` for each parameter of handle
-     * that does not have an own model.
-     */
-    export const ParamValidators: {[K in keyof Handle.PartialParamMap]?: [string, ValidatorFn][]} = {
-      request_body: [
-      ],
-    };
-}
-
-/**
  * Namespace for handleUsingGET.
  */
 export namespace HandleUsingGET {
@@ -96,6 +62,74 @@ export namespace HandleUsingGET {
      * that does not have an own model.
      */
     export const ParamValidators: {[K in keyof HandleUsingGET.PartialParamMap]?: [string, ValidatorFn][]} = {
+      request_body: [
+      ],
+    };
+}
+
+/**
+ * Namespace for handleUsingGET1.
+ */
+export namespace HandleUsingGET1 {
+    /**
+     * Parameter map for handleUsingGET1.
+     */
+    export interface PartialParamMap {
+      /**
+       * body
+       */
+      request_body?: { [key: string]: string; };
+    }
+
+    /**
+     * Enumeration of all parameters for handleUsingGET1.
+     */
+    export enum Parameters {
+      /**
+       * body
+       */
+      request_body = 'request_body'
+    }
+
+    /**
+     * A map of tuples with error name and `ValidatorFn` for each parameter of handleUsingGET1
+     * that does not have an own model.
+     */
+    export const ParamValidators: {[K in keyof HandleUsingGET1.PartialParamMap]?: [string, ValidatorFn][]} = {
+      request_body: [
+      ],
+    };
+}
+
+/**
+ * Namespace for handleUsingGET2.
+ */
+export namespace HandleUsingGET2 {
+    /**
+     * Parameter map for handleUsingGET2.
+     */
+    export interface PartialParamMap {
+      /**
+       * body
+       */
+      request_body?: { [key: string]: string; };
+    }
+
+    /**
+     * Enumeration of all parameters for handleUsingGET2.
+     */
+    export enum Parameters {
+      /**
+       * body
+       */
+      request_body = 'request_body'
+    }
+
+    /**
+     * A map of tuples with error name and `ValidatorFn` for each parameter of handleUsingGET2
+     * that does not have an own model.
+     */
+    export const ParamValidators: {[K in keyof HandleUsingGET2.PartialParamMap]?: [string, ValidatorFn][]} = {
       request_body: [
       ],
     };
@@ -136,92 +170,6 @@ export class OperationHandlerService {
         return false;
     }
 
-
-
-  /**
-   * handle by map.
-   * 
-   * @param map parameters map to set partial amount of parameters easily
-   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-   * @param reportProgress flag to report request and response progress.
-   */
-  public handleByMap(
-    map: Handle.PartialParamMap,
-    observe?: 'body',
-    reportProgress?: boolean): Observable<any>;
-  public handleByMap(
-    map: Handle.PartialParamMap,
-    observe?: 'response',
-    reportProgress?: boolean): Observable<HttpResponse<any>>;
-  public handleByMap(
-    map: Handle.PartialParamMap,
-    observe?: 'events',
-    reportProgress?: boolean): Observable<HttpEvent<any>>;
-  public handleByMap(
-    map: Handle.PartialParamMap,
-    observe: any = 'body',
-    reportProgress: boolean = false): Observable<any> {
-    return this.handle(
-      map.request_body,
-      observe,
-      reportProgress
-    );
-  }
-
-
-    /**
-     * handle
-     * 
-     * @param request_body body
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public handle(request_body?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<any>;
-    public handle(request_body?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpResponse<any>>;
-    public handle(request_body?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpEvent<any>>;
-    public handle(request_body?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false, additionalHeaders?: Array<Array<string>>): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json',
-            'application/vnd.spring-boot.actuator.v2+json',
-            'application/vnd.spring-boot.actuator.v3+json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            headers = headers.set('Content-Type', httpContentTypeSelected);
-        }
-
-            if (additionalHeaders) {
-                for(let pair of additionalHeaders) {
-                    headers = headers.set(pair[0], pair[1]);
-                }
-            }
-
-        const handle = this.httpClient.get<any>(`${this.configuration.basePath}/actuator/health`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-        if(typeof this.configuration.errorHandler === 'function') {
-          return handle.pipe(catchError(err => this.configuration.errorHandler(err, 'handle')));
-        }
-        return handle;
-    }
 
 
   /**
@@ -305,6 +253,178 @@ export class OperationHandlerService {
         );
         if(typeof this.configuration.errorHandler === 'function') {
           return handle.pipe(catchError(err => this.configuration.errorHandler(err, 'handleUsingGET')));
+        }
+        return handle;
+    }
+
+
+  /**
+   * handle by map.
+   * 
+   * @param map parameters map to set partial amount of parameters easily
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public handleUsingGET1ByMap(
+    map: HandleUsingGET1.PartialParamMap,
+    observe?: 'body',
+    reportProgress?: boolean): Observable<any>;
+  public handleUsingGET1ByMap(
+    map: HandleUsingGET1.PartialParamMap,
+    observe?: 'response',
+    reportProgress?: boolean): Observable<HttpResponse<any>>;
+  public handleUsingGET1ByMap(
+    map: HandleUsingGET1.PartialParamMap,
+    observe?: 'events',
+    reportProgress?: boolean): Observable<HttpEvent<any>>;
+  public handleUsingGET1ByMap(
+    map: HandleUsingGET1.PartialParamMap,
+    observe: any = 'body',
+    reportProgress: boolean = false): Observable<any> {
+    return this.handleUsingGET1(
+      map.request_body,
+      observe,
+      reportProgress
+    );
+  }
+
+
+    /**
+     * handle
+     * 
+     * @param request_body body
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public handleUsingGET1(request_body?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<any>;
+    public handleUsingGET1(request_body?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpResponse<any>>;
+    public handleUsingGET1(request_body?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpEvent<any>>;
+    public handleUsingGET1(request_body?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false, additionalHeaders?: Array<Array<string>>): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'application/vnd.spring-boot.actuator.v2+json',
+            'application/vnd.spring-boot.actuator.v3+json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+            if (additionalHeaders) {
+                for(let pair of additionalHeaders) {
+                    headers = headers.set(pair[0], pair[1]);
+                }
+            }
+
+        const handle = this.httpClient.get<any>(`${this.configuration.basePath}/actuator/health`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+        if(typeof this.configuration.errorHandler === 'function') {
+          return handle.pipe(catchError(err => this.configuration.errorHandler(err, 'handleUsingGET_1')));
+        }
+        return handle;
+    }
+
+
+  /**
+   * handle by map.
+   * 
+   * @param map parameters map to set partial amount of parameters easily
+   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+   * @param reportProgress flag to report request and response progress.
+   */
+  public handleUsingGET2ByMap(
+    map: HandleUsingGET2.PartialParamMap,
+    observe?: 'body',
+    reportProgress?: boolean): Observable<any>;
+  public handleUsingGET2ByMap(
+    map: HandleUsingGET2.PartialParamMap,
+    observe?: 'response',
+    reportProgress?: boolean): Observable<HttpResponse<any>>;
+  public handleUsingGET2ByMap(
+    map: HandleUsingGET2.PartialParamMap,
+    observe?: 'events',
+    reportProgress?: boolean): Observable<HttpEvent<any>>;
+  public handleUsingGET2ByMap(
+    map: HandleUsingGET2.PartialParamMap,
+    observe: any = 'body',
+    reportProgress: boolean = false): Observable<any> {
+    return this.handleUsingGET2(
+      map.request_body,
+      observe,
+      reportProgress
+    );
+  }
+
+
+    /**
+     * handle
+     * 
+     * @param request_body body
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public handleUsingGET2(request_body?: { [key: string]: string; }, observe?: 'body', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<any>;
+    public handleUsingGET2(request_body?: { [key: string]: string; }, observe?: 'response', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpResponse<any>>;
+    public handleUsingGET2(request_body?: { [key: string]: string; }, observe?: 'events', reportProgress?: boolean, additionalHeaders?: Array<Array<string>>): Observable<HttpEvent<any>>;
+    public handleUsingGET2(request_body?: { [key: string]: string; }, observe: any = 'body', reportProgress: boolean = false, additionalHeaders?: Array<Array<string>>): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json',
+            'application/vnd.spring-boot.actuator.v2+json',
+            'application/vnd.spring-boot.actuator.v3+json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+            if (additionalHeaders) {
+                for(let pair of additionalHeaders) {
+                    headers = headers.set(pair[0], pair[1]);
+                }
+            }
+
+        const handle = this.httpClient.get<any>(`${this.configuration.basePath}/actuator/info`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+        if(typeof this.configuration.errorHandler === 'function') {
+          return handle.pipe(catchError(err => this.configuration.errorHandler(err, 'handleUsingGET_2')));
         }
         return handle;
     }

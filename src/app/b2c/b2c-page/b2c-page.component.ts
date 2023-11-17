@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 import { ApiProductLabelValuesExtended } from '../../../api/model/apiProductLabelValuesExtended';
 import { ApiQRTagPublic } from '../../../api/model/apiQRTagPublic';
 import { forkJoin } from 'rxjs';
+import { B2cBpappComponent } from './b2c-bpapp/b2c-bpapp.component';
 
 @Component({
   selector: 'app-b2c-page',
@@ -52,6 +53,9 @@ export class B2cPageComponent implements OnInit {
             break;
           case B2cFeedbackComponent:
             this.tab = B2CTab.FEEDBACK;
+            break;
+          case B2cBpappComponent:
+            this.tab = B2CTab.BPAPP;
             break;
           case B2cTermsComponent:
           case B2cPrivacyComponent:

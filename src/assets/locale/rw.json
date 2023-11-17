@@ -943,6 +943,7 @@
     "userDetail.adminView.companies.label": "Abakoresha sisiteme muri sosiyete",
     "userDetail.myCompanies.noCompanies": "{$START_TAG_DIV}Nta kompanyi{$CLOSE_TAG_DIV}",
     "selectUserCompany.modal.button.confirm": "{$START_TAG_SPAN}Emeza{$CLOSE_TAG_SPAN}",
+    "selectUserCompany.modal.button.cancel": "{$START_TAG_SPAN}Cancel{$CLOSE_TAG_SPAN}",
     "selectUserCompany.title": "Hitamo kompanyi",
     "selectUserCompany.instructionsHtml": "Hitamo kompanyi wifuza gukomeza nayo:",
     "selectUserCompany.modal.userHasNoCompanies.message": "Kugeza kuri ubu nta sosiyete urimo",

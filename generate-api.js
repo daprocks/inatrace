@@ -98,7 +98,9 @@ function processSwaggerJson(verbose = false) {
                               .replace(/(.*)UsingHEAD\_\d$/, "\$1")
                               .replace(/(.*)UsingOPTIONS\_\d$/, "\$1")
                               .replace(/(.*)UsingPATCH\_\d$/, "\$1")
-      data.paths[path][action].operationId = newOpId
+      // actuator endpoints produce duplicated operations, skipping that change
+      if (path!="/actuator/health" && path != "/actuator/health/**" && path != "/actuator/info")
+        data.paths[path][action].operationId = newOpId
       if (verbose) {
         console.log(path)
         console.log(action)

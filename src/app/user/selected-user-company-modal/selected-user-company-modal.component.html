@@ -29,6 +29,12 @@
                 (click)="logout()"
                 i18n="@@selectUserCompany.modal.button.logout">Logout</button>
       </ng-template>
+      <button *ngIf="userIsAdmin;"
+              type="button"
+              class="btn"
+              (click)="cancel()" i18n="@@selectUserCompany.modal.button.cancel">
+        <span>Cancel</span>
+      </button>
     </div>
   </ng-container>
 </div>

@@ -11,6 +11,157 @@
     }
   ],
   "paths": {
+    "/actuator": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Link"
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v2+json": {
+                "schema": {
+                  "additionalProperties": {
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Link"
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v3+json": {
+                "schema": {
+                  "additionalProperties": {
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/Link"
+                    },
+                    "type": "object"
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "web-mvc-links-handler"
+        ],
+        "operationId": "linksUsingGET",
+        "summary": "links"
+      }
+    },
+    "/actuator/health": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v2+json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v3+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "operation-handler"
+        ],
+        "operationId": "handleUsingGET_1",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/handleUsingGET_1Body"
+        },
+        "summary": "handle"
+      }
+    },
+    "/actuator/health/**": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v2+json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v3+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "operation-handler"
+        ],
+        "operationId": "handleUsingGET",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/handleUsingGET_1Body"
+        },
+        "summary": "handle"
+      }
+    },
+    "/actuator/info": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v2+json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/vnd.spring-boot.actuator.v3+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "operation-handler"
+        ],
+        "operationId": "handleUsingGET_2",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/handleUsingGET_1Body"
+        },
+        "summary": "handle"
+      }
+    },
     "/api/chain/beyco-order/company/{companyId}/fields": {
       "get": {
         "parameters": [
@@ -2761,6 +2912,7 @@
             "schema": {
               "enum": [
                 "PROCESSING",
+                "PACKAGING",
                 "FINAL_PROCESSING",
                 "SHIPMENT",
                 "TRANSFER",
@@ -11578,6 +11730,19 @@
         "description": "request",
         "required": true
       },
+      "handleUsingGET_1Body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "body"
+      },
       "uploadDocumentUsingPOST": {
         "content": {
           "application/octet-stream": {
@@ -12175,6 +12340,10 @@
           "averageRegionFarmGatePrice": {
             "type": "number"
           },
+          "bpappId": {
+            "format": "int32",
+            "type": "integer"
+          },
           "containerSize": {
             "type": "number"
           },
@@ -12235,6 +12404,10 @@
           "manualProducerPrice": {
             "type": "number"
           },
+          "orderBpapp": {
+            "format": "int32",
+            "type": "integer"
+          },
           "orderFairPrices": {
             "format": "int64",
             "type": "integer"
@@ -12265,6 +12438,9 @@
           },
           "secondaryColor": {
             "type": "string"
+          },
+          "tabBpapp": {
+            "type": "boolean"
           },
           "tabFairPrices": {
             "type": "boolean"
@@ -13832,6 +14008,11 @@
       },
       "ApiMeasureUnitType": {
         "properties": {
+          "aggregateByWeight": {
+            "description": "aggregate by weight 1 or quantity 0",
+            "example": false,
+            "type": "boolean"
+          },
           "code": {
             "description": "code",
             "type": "string"
@@ -13844,6 +14025,11 @@
           "label": {
             "description": "label",
             "type": "string"
+          },
+          "quantity": {
+            "description": "units quantity",
+            "format": "int32",
+            "type": "integer"
           },
           "underlyingMeasurementUnitType": {
             "$ref": "#/components/schemas/ApiMeasureUnitType",
@@ -15919,6 +16105,7 @@
             "description": "Processing action type",
             "enum": [
               "PROCESSING",
+              "PACKAGING",
               "FINAL_PROCESSING",
               "SHIPMENT",
               "TRANSFER",
@@ -19564,6 +19751,10 @@
             "description": "Balance",
             "type": "number"
           },
+          "bloques": {
+            "description": "Bloques",
+            "type": "string"
+          },
           "comments": {
             "description": "Comments",
             "type": "string"
@@ -19627,6 +19818,11 @@
             "description": "Fulfilled quantity",
             "type": "number"
           },
+          "harvestRecord": {
+            "description": "Harvest record number",
+            "format": "int32",
+            "type": "integer"
+          },
           "id": {
             "description": "Entity id",
             "format": "int64",
@@ -19647,6 +19843,10 @@
           },
           "lotPrefix": {
             "description": "The prefix for the LOT name - retrieved from the Processing action",
+            "type": "string"
+          },
+          "lotes": {
+            "description": "Lotes",
             "type": "string"
           },
           "measureUnitType": {
@@ -20615,6 +20815,23 @@
         },
         "type": "object"
       },
+      "Link": {
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "templated": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "Map_string_Link_": {
+        "additionalProperties": {
+          "$ref": "#/components/schemas/Link"
+        },
+        "type": "object"
+      },
       "ModelAndView": {
         "properties": {
           "empty": {
@@ -20739,6 +20956,14 @@
     {
       "description": "Common Controller",
       "name": "common-controller"
+    },
+    {
+      "description": "Web Mvc Links Handler",
+      "name": "web-mvc-links-handler"
+    },
+    {
+      "description": "Operation Handler",
+      "name": "operation-handler"
     },
     {
       "description": "Product Order Controller",

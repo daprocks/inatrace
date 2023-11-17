@@ -944,6 +944,7 @@
     "userDetail.adminView.companies.label": "Unternehmen des Benutzers",
     "userDetail.myCompanies.noCompanies": "{$START_TAG_DIV}Keine Unternehmen{$CLOSE_TAG_DIV}",
     "selectUserCompany.modal.button.confirm": "{$START_TAG_SPAN}Bestätigen{$CLOSE_TAG_SPAN}",
+    "selectUserCompany.modal.button.cancel": "{$START_TAG_SPAN}Stornieren{$CLOSE_TAG_SPAN}",
     "selectUserCompany.title": "Unternehmen auswählen",
     "selectUserCompany.instructionsHtml": "Wählen Sie ein Unternehmen aus, mit dem Sie fortsetzen möchten:",
     "selectUserCompany.modal.userHasNoCompanies.message": "Derzeit sind Ihnen keine Unternehmen zugeordnet. Kontaktieren Sie Ihren Administrator.",

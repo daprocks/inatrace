@@ -61,6 +61,7 @@ export class StockDeliveryDetailsComponent implements OnInit, OnDestroy {
   codebookUsers: EnumSifrant;
 
   facilityNameForm = new FormControl(null);
+  harvestRecordForm = new FormControl(null);
 
   options: ApiSemiProduct[] = [];
   modelChoice = null;

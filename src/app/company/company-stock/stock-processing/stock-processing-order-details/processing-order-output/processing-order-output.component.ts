@@ -91,7 +91,7 @@ export class ProcessingOrderOutputComponent implements OnInit, OnDestroy {
   }
 
   get showAddNewOutputButton() {
-    return this.actionType === 'PROCESSING';
+    return this.actionType === 'PROCESSING' || this.actionType === 'PACKAGING';
   }
 
   getTSOGroupRepackedOutputsArray(tsoGroup: AbstractControl): FormArray {
@@ -289,6 +289,7 @@ export class ProcessingOrderOutputComponent implements OnInit, OnDestroy {
     // Set validators for specific fields depending on the Processing action type
     switch (this.actionType) {
       case 'PROCESSING':
+      case 'PACKAGING':
         StockProcessingOrderDetailsHelper.setFormControlValidators(tsoGroup, 'totalQuantity', [Validators.required]);
       // tslint:disable-next-line:no-switch-case-fall-through
       case 'GENERATE_QR_CODE':

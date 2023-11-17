@@ -112,9 +112,11 @@ export class CompanyDetailProcessingActionsDetailComponent extends CompanyDetail
     const obj = {};
     obj['SHIPMENT'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.quote:Quote`;
     obj['PROCESSING'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.processing:Processing`;
+    obj['PACKAGING'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.packaging:Packaging`;
     obj['FINAL_PROCESSING'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.finalProcessing:Final processing`;
     obj['TRANSFER'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.transfer:Transfer`;
     obj['GENERATE_QR_CODE'] = $localize`:@@companyDetailProcessingActions.singleChoice.type.generateQrCode:Generate QR code`;
+    
     return obj;
   }
 

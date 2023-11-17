@@ -66,6 +66,9 @@ export class B2cTabsComponent implements OnInit {
     if (this.b2cSettings.tabFeedback) {
       tempTabList.push({number: this.b2cSettings.orderFeedback, tab: B2CTab.FEEDBACK});
     }
+    if (this.b2cSettings.tabBpapp) {
+      tempTabList.push({number: this.b2cSettings.orderBpapp, tab: B2CTab.BPAPP});
+    }
 
     tempTabList.sort((a, b) => a.number - b.number);
 
@@ -80,5 +83,6 @@ export enum B2CTab {
   FAIR_PRICES = 'fair-prices',
   PRODUCERS = 'producers',
   QUALITY = 'quality',
-  FEEDBACK = 'feedback'
+  FEEDBACK = 'feedback',
+  BPAPP = 'bpapp',
 }

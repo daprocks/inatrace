@@ -205,7 +205,7 @@
                     </span>
                         </div>
                         <div class="af-c3 text-right">
-                    <span *ngIf="actionType === 'PROCESSING' || actionType === 'FINAL_PROCESSING'"
+                    <span *ngIf="actionType === 'PROCESSING' || actionType === 'PACKAGING' || actionType === 'FINAL_PROCESSING'"
                           (click)="clipInputTransaction(item, i)" class="cursor-pointer">
                       <fa-icon [icon]="faCut" class="pr-2"></fa-icon>
                     </span>

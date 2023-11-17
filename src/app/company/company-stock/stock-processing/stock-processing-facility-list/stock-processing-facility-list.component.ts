@@ -98,6 +98,7 @@ export class StockProcessingFacilityListComponent implements OnInit {
 
         case 'STORAGE':
         case 'ALMACEN':
+        case 'PLANTA_EMPACADORA':
           this.categoryTwo.push(facility);
           break;
 

@@ -459,6 +459,7 @@ export class ProcessingOrderInputComponent implements OnInit, OnDestroy {
 
     switch (this.actionType) {
       case 'PROCESSING':
+      case 'PACKAGING':
       case 'FINAL_PROCESSING':
       case 'GENERATE_QR_CODE':
       case 'SHIPMENT':
@@ -615,7 +616,7 @@ export class ProcessingOrderInputComponent implements OnInit, OnDestroy {
     const inputTransactions: ApiTransaction[] = [];
 
     // Common computed properties used in every transaction
-    const isProcessing = this.actionType === 'PROCESSING' || this.actionType === 'FINAL_PROCESSING' || this.actionType === 'GENERATE_QR_CODE';
+    const isProcessing = this.actionType === 'PROCESSING' || this.actionType === 'PACKAGING' || this.actionType === 'FINAL_PROCESSING' || this.actionType === 'GENERATE_QR_CODE';
     const status: ApiTransaction.StatusEnum = this.actionType === 'SHIPMENT' ? StatusEnum.PENDING : StatusEnum.EXECUTED;
 
     for (const stockOrder of this.selectedInputStockOrders) {

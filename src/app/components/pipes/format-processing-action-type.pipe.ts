@@ -9,6 +9,8 @@ export class FormatProcessingActionTypePipe implements PipeTransform {
     switch (value) {
       case 'PROCESSING':
         return $localize`:@@formatProcessingActionType.processing:Processing`;
+      case 'PACKAGING':
+        return $localize`:@@formatProcessingActionType.packaging:Packaging`;
       case 'FINAL_PROCESSING':
         return $localize`:@@formatProcessingActionType.finalProcessing:Final processing`;
       case 'SHIPMENT':

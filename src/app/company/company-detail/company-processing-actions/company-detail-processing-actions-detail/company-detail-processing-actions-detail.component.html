@@ -167,7 +167,7 @@
                             </single-choice>
                         </ng-container>
 
-                        <ng-container *ngIf="form.get('type').value === 'PROCESSING' || form.get('type').value === 'FINAL_PROCESSING'">
+                        <ng-container *ngIf="form.get('type').value === 'PROCESSING' || form.get('type').value === 'FINAL_PROCESSING' || form.get('type').value === 'PACKAGING' ">
                             <single-choice
                                     label="Select input semi-product"
                                     i18n-label="@@companyDetailProcessingActions.singleChoice.inputSemiProduct.label"
@@ -187,7 +187,7 @@
                             </single-choice>
 
                             <!-- If action type is processing, we can have selected multiple output semi-products -->
-                            <ng-container *ngIf="form.get('type').value === 'PROCESSING'">
+                            <ng-container *ngIf="form.get('type').value === 'PROCESSING' || form.get('type').value === 'PACKAGING'">
                                 <label i18n="@@companyDetailProcessingActions.outputSemiProducts.title">Output semi-products</label>
                                 <div class="af-form-element output-semi-products">
 
@@ -318,7 +318,7 @@
                             </ng-container>
 
                             <textinput
-                                    *ngIf="form.get('type').value === 'PROCESSING'"
+                                    *ngIf="form.get('type').value === 'PROCESSING' || form.get('type').value === 'PACKAGING'"
                                     [label]="estimatedOutputQuantityLabel"
                                     placeholder="Enter estimated output quantity"
                                     i18n-placeholder="@@companyDetailProcessingActions.textInput.estimatedOutputQuantity.placeholder"

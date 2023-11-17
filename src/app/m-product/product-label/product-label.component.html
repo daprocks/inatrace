@@ -342,7 +342,7 @@
               <ng-container *ngFor="let element of b2cElements">
                 <div cdkDrag class="row" [class.draggable-box]="!element.disableDrag && reorderMode" [cdkDragDisabled]="element.disableDrag || !reorderMode">
                   <div class="col-1 px-0 d-flex justify-content-center">
-                    <fa-icon *ngIf="!element.disableDrag && reorderMode" [icon]="faArrowsAlt" class="arrows-move"></fa-icon>
+                   <fa-icon *ngIf="!element.disableDrag && reorderMode" [icon]="faArrowsAlt" class="arrows-move"></fa-icon>
                   </div>
                   <div class="col-11">
                     <ng-template *ngTemplateOutlet="element.template"></ng-template>
@@ -1294,6 +1294,32 @@
       <div class="mt-2" *ngIf="productForm.get('businessToCustomerSettings.tabFeedback').value">
         <textinput [form]="$any(productForm).get('businessToCustomerSettings.orderFeedback')"
                    label="'Feedback' tab position" [readOnly]="!canEdit()"></textinput>
+      </div>
+    </div>
+  </app-closable>
+</ng-template>
+
+<ng-template #b2cTabBpapp>
+  <app-closable
+          [nonClosable]="true"
+          [visibilityForm]="visibilityMap.get('businessToCustomerSettings.tabBpapp')"
+          [reorderMode]="reorderMode"
+          [openOnValueChange]="openOnStart"
+          class="af-form-element--nolabel">
+    <div class="d-flex align-items-baseline justify-content-between">
+      <checkbox-input
+              [form]="$any(productForm).get('businessToCustomerSettings.tabBpapp')"
+              [disabled]="!canEdit()">
+        <checkbox-input-rich-label i18n="@@productLabel.b2c.tabBpaap">
+          Enable 'BCA' tab
+        </checkbox-input-rich-label>
+      </checkbox-input>
+
+      <div class="mt-2" *ngIf="productForm.get('businessToCustomerSettings.tabBpapp').value">
+        <textinput [form]="$any(productForm).get('businessToCustomerSettings.bpappId')"
+                   label="'BCA' company Id" [readOnly]="!canEdit()"></textinput>
+        <textinput [form]="$any(productForm).get('businessToCustomerSettings.orderBpapp')"
+                   label="'BCA' tab position" [readOnly]="!canEdit()"></textinput>
       </div>
     </div>
   </app-closable>

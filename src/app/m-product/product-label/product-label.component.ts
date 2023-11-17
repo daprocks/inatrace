@@ -445,6 +445,9 @@ export class ProductLabelComponent extends ComponentCanDeactivate implements OnI
   @ViewChild('b2cTabFeedback', { static: false })
   b2cTabFeedback: TemplateRef<any>;
 
+  @ViewChild('b2cTabBpapp', { static: false })
+  b2cTabBpapp: TemplateRef<any>;
+
   @ViewChild('b2cProductFont', { static: false })
   b2cProductFont: TemplateRef<any>;
 
@@ -683,6 +686,8 @@ export class ProductLabelComponent extends ComponentCanDeactivate implements OnI
           tabProducers: true,
           tabQuality: true,
           tabFeedback: true,
+          tabBpapp: false,
+          BpaapId: '',
           orderFairPrices: 1,
           orderProducers: 2,
           orderQuality: 3,
@@ -1104,6 +1109,7 @@ export class ProductLabelComponent extends ComponentCanDeactivate implements OnI
       { name: 'businessToCustomerSettings.tabProducers', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cTabProducers },
       { name: 'businessToCustomerSettings.tabQuality', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cTabQuality },
       { name: 'businessToCustomerSettings.tabFeedback', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cTabFeedback },
+      { name: 'businessToCustomerSettings.tabBpaap', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cTabBpapp },
       { name: 'businessToCustomerSettings.productFont', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cProductFont },
       { name: 'businessToCustomerSettings.textFont', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cTextFont },
       { name: 'businessToCustomerSettings.landingPageImage', section: 'businessToCustomerSettings', visible: new FormControl(false), template: this.b2cLandingPageImage },

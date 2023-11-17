@@ -51,6 +51,10 @@ export interface ApiStockOrder {
      */
     balance?: number;
     /**
+     * Bloques
+     */
+    bloques?: string;
+    /**
      * Comments
      */
     comments?: string;
@@ -96,6 +100,10 @@ export interface ApiStockOrder {
      */
     fulfilledQuantity?: number;
     /**
+     * Harvest record number
+     */
+    harvestRecord?: number;
+    /**
      * Entity id
      */
     id?: number;
@@ -115,6 +123,10 @@ export interface ApiStockOrder {
      * The prefix for the LOT name - retrieved from the Processing action
      */
     lotPrefix?: string;
+    /**
+     * Lotes
+     */
+    lotes?: string;
     measureUnitType?: ApiMeasureUnitType;
     openOrder?: boolean;
     /**
@@ -240,6 +252,10 @@ export namespace ApiStockOrder {
          */
         balance = 'balance',
         /**
+         * Bloques
+         */
+        bloques = 'bloques',
+        /**
          * Comments
          */
         comments = 'comments',
@@ -285,6 +301,10 @@ export namespace ApiStockOrder {
          */
         fulfilledQuantity = 'fulfilledQuantity',
         /**
+         * Harvest record number
+         */
+        harvestRecord = 'harvestRecord',
+        /**
          * Entity id
          */
         id = 'id',
@@ -304,6 +324,10 @@ export namespace ApiStockOrder {
          * The prefix for the LOT name - retrieved from the Processing action
          */
         lotPrefix = 'lotPrefix',
+        /**
+         * Lotes
+         */
+        lotes = 'lotes',
         measureUnitType = 'measureUnitType',
         openOrder = 'openOrder',
         /**
@@ -484,6 +508,17 @@ export namespace ApiStockOrder {
                     isReadOnly: false,
                     isEnum: false,
                     required: false,
+                    name: 'bloques',
+                    classname: 'ApiStockOrder',
+                    dataType: 'string',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
                     name: 'comments',
                     classname: 'ApiStockOrder',
                     dataType: 'string',
@@ -654,6 +689,17 @@ export namespace ApiStockOrder {
                     isReadOnly: false,
                     isEnum: false,
                     required: false,
+                    name: 'harvestRecord',
+                    classname: 'ApiStockOrder',
+                    dataType: 'number',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
                     name: 'id',
                     classname: 'ApiStockOrder',
                     dataType: 'number',
@@ -699,6 +745,17 @@ export namespace ApiStockOrder {
                     isEnum: false,
                     required: false,
                     name: 'lotPrefix',
+                    classname: 'ApiStockOrder',
+                    dataType: 'string',
+                    isPrimitiveType: true,
+                    isListContainer: false,
+                    complexType: ''
+                },
+                {
+                    isReadOnly: false,
+                    isEnum: false,
+                    required: false,
+                    name: 'lotes',
                     classname: 'ApiStockOrder',
                     dataType: 'string',
                     isPrimitiveType: true,
@@ -1117,6 +1174,8 @@ export namespace ApiStockOrder {
                 ],
                 balance: [
                 ],
+                bloques: [
+                ],
                 comments: [
                 ],
                 company: [
@@ -1147,6 +1206,8 @@ export namespace ApiStockOrder {
                 ],
                 fulfilledQuantity: [
                 ],
+                harvestRecord: [
+                ],
                 id: [
                 ],
                 identifier: [
@@ -1156,6 +1217,8 @@ export namespace ApiStockOrder {
                 isAvailable: [
                 ],
                 lotPrefix: [
+                ],
+                lotes: [
                 ],
                 measureUnitType: [
                 ],
@@ -1246,6 +1309,9 @@ export namespace ApiStockOrder {
   //               balance: {
   //                   validators: []
   //               },
+  //               bloques: {
+  //                   validators: []
+  //               },
   //               comments: {
   //                   validators: []
   //               },
@@ -1291,6 +1357,9 @@ export namespace ApiStockOrder {
   //               fulfilledQuantity: {
   //                   validators: []
   //               },
+  //               harvestRecord: {
+  //                   validators: []
+  //               },
   //               id: {
   //                   validators: []
   //               },
@@ -1304,6 +1373,9 @@ export namespace ApiStockOrder {
   //                   validators: []
   //               },
   //               lotPrefix: {
+  //                   validators: []
+  //               },
+  //               lotes: {
   //                   validators: []
   //               },
   //               measureUnitType: {
